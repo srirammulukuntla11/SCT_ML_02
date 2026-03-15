@@ -35,35 +35,6 @@ A professional full-stack web application that segments mall customers using K-m
 - **React Dropzone** - File upload
 - **React Toastify** - Notifications
 
-## 📁 Project Structure
-mall-customer-segmentation/
-├── backend/
-│ ├── app.py # Flask server entry point
-│ ├── config.py # Configuration settings
-│ ├── requirements.txt # Python dependencies
-│ ├── model/
-│ │ ├── clustering.py # Custom K-means implementation
-│ │ └── preprocessing.py # Data preprocessing
-│ └── data/ # Uploaded CSV files
-├── frontend/
-│ ├── public/
-│ │ └── index.html # HTML template
-│ ├── src/
-│ │ ├── App.js # Main React component
-│ │ ├── index.js # Entry point
-│ │ ├── components/ # React components
-│ │ │ ├── UploadData.js # File upload component
-│ │ │ ├── ClusteringResults.js # Results display
-│ │ │ └── CustomerTable.js # Customer data table
-│ │ ├── services/
-│ │ │ └── api.js # API service calls
-│ │ └── styles/
-│ │ └── App.css # Styling
-│ └── package.json # Node dependencies
-├── .gitignore # Git ignore file
-└── README.md # Project documentation
-
-text
 
 ## 📊 Dataset
 
@@ -162,30 +133,5 @@ Ensure backend is running on port 5000
 
 Check CORS is enabled (it is in app.py)
 
-🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
 
-Fork the repository
 
-Create your feature branch (git checkout -b feature/AmazingFeature)
-
-Commit your changes (git commit -m 'Add some AmazingFeature')
-
-Push to the branch (git push origin feature/AmazingFeature)
-
-Open a Pull Request
-
-📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-👨‍💻 Author
-Sriram Mulukuntla
-
-GitHub: @srirammulukuntla11
-
-🙏 Acknowledgments
-Dataset: Mall Customer Segmentation Data
-
-Icons: Material-UI Icons
-
-Charts: Matplotlib & Seaborn
