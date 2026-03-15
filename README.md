@@ -1,46 +1,191 @@
-# Mall Customer Segmentation
+# 🛍️ Mall Customer Segmentation - K-means Clustering Web Application
 
-## Backend Setup
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![Flask](https://img.shields.io/badge/Flask-2.3.3-green)
+![React](https://img.shields.io/badge/React-18.2.0-61dafb)
+![Material UI](https://img.shields.io/badge/Material--UI-5.14.5-007fff)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-Create virtual environment:
+A professional full-stack web application that segments mall customers using K-means clustering algorithm. The application helps businesses understand their customer base and create targeted marketing strategies based on age, income, and spending patterns.
+
+## ✨ Features
+
+- **📤 CSV Upload** - Drag & drop or select customer data file
+- **🔍 Optimal K Selection** - Elbow method visualization to find best cluster count
+- **🎯 K-means Clustering** - Segment customers into distinct groups
+- **📈 Interactive Visualizations** - Scatter plots showing customer segments
+- **💡 Business Insights** - Auto-generated marketing recommendations
+- **📥 Export Results** - Download segmented data with cluster labels
+
+## 🏗️ Tech Stack
+
+### Backend
+- **Python 3.13** - Core programming language
+- **Flask** - REST API framework
+- **Pandas/NumPy** - Data processing and manipulation
+- **Matplotlib/Seaborn** - Data visualization
+- **Scikit-learn** - K-means algorithm (optional fallback)
+- **Joblib** - Model serialization
+
+### Frontend
+- **React 18** - UI library
+- **Material-UI v5** - Professional component library
+- **React Router v6** - Navigation
+- **Axios** - API calls
+- **React Dropzone** - File upload
+- **React Toastify** - Notifications
+
+## 📁 Project Structure
+mall-customer-segmentation/
+├── backend/
+│ ├── app.py # Flask server entry point
+│ ├── config.py # Configuration settings
+│ ├── requirements.txt # Python dependencies
+│ ├── model/
+│ │ ├── clustering.py # Custom K-means implementation
+│ │ └── preprocessing.py # Data preprocessing
+│ └── data/ # Uploaded CSV files
+├── frontend/
+│ ├── public/
+│ │ └── index.html # HTML template
+│ ├── src/
+│ │ ├── App.js # Main React component
+│ │ ├── index.js # Entry point
+│ │ ├── components/ # React components
+│ │ │ ├── UploadData.js # File upload component
+│ │ │ ├── ClusteringResults.js # Results display
+│ │ │ └── CustomerTable.js # Customer data table
+│ │ ├── services/
+│ │ │ └── api.js # API service calls
+│ │ └── styles/
+│ │ └── App.css # Styling
+│ └── package.json # Node dependencies
+├── .gitignore # Git ignore file
+└── README.md # Project documentation
+
+text
+
+## 📊 Dataset
+
+The application uses the **Mall Customer Dataset** from Kaggle:
+
+- **Source**: [Mall Customer Segmentation Data](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python)
+- **Records**: 200 customers
+- **Features**:
+  - `CustomerID` - Unique identifier
+  - `Gender` - Male/Female
+  - `Age` - Customer age (19-70 years)
+  - `Annual Income (k$)` - Income in thousand dollars (15-137k)
+  - `Spending Score (1-100)` - Score based on spending behavior
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+- Python 3.8+
+- Node.js 14+
+- npm or yarn
+
+### Backend Setup
 
 ```bash
+# Navigate to backend folder
+cd backend
+
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
 
-Install dependencies:
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+# On Mac/Linux:
+source venv/bin/activate
 
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
 
-Start Flask server:
-
-```bash
+# Start Flask server
 python app.py
-```
+The backend will run on http://localhost:5000
 
-The server will run on http://localhost:5000
-
-## Frontend Setup
-
-Navigate to frontend directory:
-
-```bash
+Frontend Setup
+bash
+# Navigate to frontend folder
 cd frontend
-```
 
-Install dependencies:
-
-```bash
+# Install dependencies
 npm install
-```
 
-Start React development server:
-
-```bash
+# Start React development server
 npm start
-```
+The frontend will open at http://localhost:3000
 
-The application will open on http://localhost:3000
+🎯 How to Use
+Upload Data - Drag & drop your CSV file or click to select
+
+Analyze - Click "Analyze Data" to find optimal number of clusters
+
+Configure - Adjust the slider to select number of clusters (K)
+
+Run Clustering - Click "Run Clustering" to segment customers
+
+View Results - Explore clusters, visualizations, and insights
+
+Download - Export results with cluster assignments
+
+📈 Sample Results
+With K=5 clusters, you get segments like:
+
+Cluster	Size	Income	Spending	Type	Strategy
+0	39	High ($86.5k)	High (82.1)	💰 Premium	Loyalty programs
+1	53	Medium ($41.5k)	Good (62.7)	🛍️ Average	Regular promotions
+2	20	Low ($25.6k)	Low (18.6)	💵 Budget	Discounts
+3	37	High ($87.2k)	Low (18.2)	🎯 Potential	Engagement campaigns
+4	51	Medium ($54.8k)	Medium (48.5)	👴 Seniors	Senior discounts
+🛠️ API Endpoints
+Method	Endpoint	Description
+GET	/api/health	Server health check
+POST	/api/upload	Upload CSV file
+POST	/api/analyze/optimal-k	Find optimal K value
+POST	/api/analyze/cluster	Run K-means clustering
+POST	/api/download/results	Download results CSV
+🔧 Troubleshooting
+Common Issues
+Backend won't start
+
+bash
+# Check if port 5000 is in use
+netstat -ano | findstr :5000
+# Change port in app.py if needed
+Frontend can't connect to backend
+
+Ensure backend is running on port 5000
+
+Check CORS is enabled (it is in app.py)
+
+🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+Fork the repository
+
+Create your feature branch (git checkout -b feature/AmazingFeature)
+
+Commit your changes (git commit -m 'Add some AmazingFeature')
+
+Push to the branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+📝 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+👨‍💻 Author
+Sriram Mulukuntla
+
+GitHub: @srirammulukuntla11
+
+🙏 Acknowledgments
+Dataset: Mall Customer Segmentation Data
+
+Icons: Material-UI Icons
+
+Charts: Matplotlib & Seaborn
